@@ -1,25 +1,32 @@
 import { DarkTheme, DefaultTheme, type Theme } from 'expo-router/react-navigation';
- 
+
+/**
+ * The same palette as global.css, in JavaScript, because React Navigation styles
+ * the header with a plain object and cannot read a CSS variable.
+ *
+ * Values are sRGB hex rather than oklch, and the two translucent border tokens
+ * are given solid stand-ins, because a navigation theme has to be opaque.
+ */
 export const THEME = {
   light: {
-    background: 'hsl(0 0% 100%)',
-    foreground: 'hsl(0 0% 3.9%)',
-    card: 'hsl(0 0% 100%)',
-    cardForeground: 'hsl(0 0% 3.9%)',
-    popover: 'hsl(0 0% 100%)',
-    popoverForeground: 'hsl(0 0% 3.9%)',
-    primary: 'hsl(0 0% 9%)',
-    primaryForeground: 'hsl(0 0% 98%)',
-    secondary: 'hsl(0 0% 96.1%)',
-    secondaryForeground: 'hsl(0 0% 9%)',
-    muted: 'hsl(0 0% 96.1%)',
-    mutedForeground: 'hsl(0 0% 45.1%)',
-    accent: 'hsl(0 0% 96.1%)',
-    accentForeground: 'hsl(0 0% 9%)',
-    destructive: 'hsl(0 84.2% 60.2%)',
-    border: 'hsl(0 0% 89.8%)',
-    input: 'hsl(0 0% 89.8%)',
-    ring: 'hsl(0 0% 63%)',
+    background: '#fcf8f3',
+    foreground: '#261d16',
+    card: '#fffffd',
+    cardForeground: '#261d16',
+    popover: '#fffffd',
+    popoverForeground: '#261d16',
+    primary: '#6e4836',
+    primaryForeground: '#fffbf4',
+    secondary: '#f3e6d2',
+    secondaryForeground: '#503224',
+    muted: '#f3eee6',
+    mutedForeground: '#72665e',
+    accent: '#f4e2c8',
+    accentForeground: '#482a1d',
+    destructive: '#e7000b',
+    border: '#e3d9cd',
+    input: '#e3d9cd',
+    ring: '#6e4836',
     radius: '0.625rem',
     chart1: 'hsl(12 76% 61%)',
     chart2: 'hsl(173 58% 39%)',
@@ -28,24 +35,24 @@ export const THEME = {
     chart5: 'hsl(27 87% 67%)',
   },
   dark: {
-    background: 'hsl(0 0% 3.9%)',
-    foreground: 'hsl(0 0% 98%)',
-    card: 'hsl(0 0% 3.9%)',
-    cardForeground: 'hsl(0 0% 98%)',
-    popover: 'hsl(0 0% 3.9%)',
-    popoverForeground: 'hsl(0 0% 98%)',
-    primary: 'hsl(0 0% 98%)',
-    primaryForeground: 'hsl(0 0% 9%)',
-    secondary: 'hsl(0 0% 14.9%)',
-    secondaryForeground: 'hsl(0 0% 98%)',
-    muted: 'hsl(0 0% 14.9%)',
-    mutedForeground: 'hsl(0 0% 63.9%)',
-    accent: 'hsl(0 0% 14.9%)',
-    accentForeground: 'hsl(0 0% 98%)',
-    destructive: 'hsl(0 70.9% 59.4%)',
-    border: 'hsl(0 0% 14.9%)',
-    input: 'hsl(0 0% 14.9%)',
-    ring: 'hsl(300 0% 45%)',
+    background: '#130e0a',
+    foreground: '#f4f1ec',
+    card: '#201913',
+    cardForeground: '#f4f1ec',
+    popover: '#201913',
+    popoverForeground: '#f4f1ec',
+    primary: '#f1c68b',
+    primaryForeground: '#25170d',
+    secondary: '#332920',
+    secondaryForeground: '#eeebe4',
+    muted: '#2d251e',
+    mutedForeground: '#aaa39a',
+    accent: '#3b2d20',
+    accentForeground: '#f1eee7',
+    destructive: '#ff6467',
+    border: '#3a3129',
+    input: '#453b33',
+    ring: '#f1c68b',
     radius: '0.625rem',
     chart1: 'hsl(220 70% 50%)',
     chart2: 'hsl(160 60% 45%)',
@@ -54,14 +61,14 @@ export const THEME = {
     chart5: 'hsl(340 75% 55%)',
   },
 };
- 
+
 export const NAV_THEME: Record<'light' | 'dark', Theme> = {
   light: {
     ...DefaultTheme,
     colors: {
       background: THEME.light.background,
       border: THEME.light.border,
-      card: THEME.light.card,
+      card: THEME.light.background,
       notification: THEME.light.destructive,
       primary: THEME.light.primary,
       text: THEME.light.foreground,
@@ -72,7 +79,7 @@ export const NAV_THEME: Record<'light' | 'dark', Theme> = {
     colors: {
       background: THEME.dark.background,
       border: THEME.dark.border,
-      card: THEME.dark.card,
+      card: THEME.dark.background,
       notification: THEME.dark.destructive,
       primary: THEME.dark.primary,
       text: THEME.dark.foreground,
